@@ -11,6 +11,7 @@ return new class extends Migration
         Schema::create('bahan', function (Blueprint $table) {
             $table->bigIncrements("id");
             $table->string("nama")->unique();
+            $table->integer("stok")->default(0);
             $table->text("deskripsi")->nullable();
             $table->timestamp("tanggal_restok")->nullable();
         });

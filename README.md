@@ -1,4 +1,4 @@
-# HALAMAN
+# ROUTE
 
 ## Pemilik
 
@@ -11,20 +11,23 @@
 
 ## Pegawai (tidak bisa semua route di atas)
 
-/pesanan (GET)
+/pesanan
 
+-   / (GET)
 -   /{id}/detail (GET)
 -   /{id}/selesai (POST)
 
-/menu (GET)
+/menu
 
+-   / (GET)
 -   /{id}/detail (GET)
 -   /tambah (POST)
 -   /{id}/update (POST)
 -   /{id}/hapus (DELETE)
 
-/bahan (GET)
+/bahan
 
+-   / (GET)
 -   /{id}/detail (GET)
 -   /tambah (POST)
 -   /{id}/update (POST)
@@ -32,23 +35,25 @@
 
 ## Pelanggan (tidak bisa semua route di atas)
 
-/profil (GET)
+/profil
 
+-   / (GET)
 -   /update (POST)
 -   /delete (DELETE)
 
-/pesanan (GET)
+/pesanan
 
--   /daftar (GET)
+-   / (GET)
 -   /{id}/detail (GET)
 -   /pesan (POST)
 
 ## Semua
 
-/auth (GET)
+/auth
 
 -   /masuk (POST)
 -   /daftar (POST)
+-   /keluar (POST)
 
 /about
 
@@ -71,6 +76,7 @@ Menu | menu (N-to-N pesanan)(N-to-N bahan)
 
 -   [guarded] bigincrement id
 -   [fillable] [unique] string nama
+-   [fillable] integer harga
 -   [fillable] [nullable] text deskripsi
 -   [fillable] timestamp tanggal_tambah
 
@@ -78,6 +84,7 @@ Bahan | bahan (N-to-N menu)
 
 -   [guarded] bigincrement id
 -   [fillable] [unique] string nama
+-   [fillable] [unique] integer stok
 -   [fillable] [nullable] text deskripsi
 -   [fillable] [nullable] timestamp tanggal_restok
 
@@ -108,6 +115,7 @@ bahan_menu
 -   [guarded] bigincrement id
 -   [fillable] foreignid bahan_id
 -   [fillable] foreignid menu_id
+-   [fillable] integer jumlah
 
 menu_pesanan
 
@@ -116,3 +124,20 @@ menu_pesanan
 -   [fillable] foreignid pesanan_id
 -   [fillable] integer jumlah_porsi
 -   [fillable] [nullable] text permintaan_tambahan
+
+# HALAMAN
+
+NOTE:
+
+-   CSS sementara, ganti pakai Bootstrap, salin dokumentasi (yang basic) ke dokumen.
+
+## Layout
+
+Main:
+
+-   Header (atas)
+-   Nav (kiri)
+-   Content (kanan)
+-   Footer (bawah)
+
+##

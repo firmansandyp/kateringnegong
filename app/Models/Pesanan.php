@@ -32,6 +32,6 @@ class Pesanan extends Model
 
     public function menu()
     {
-        return $this->belongsToMany(Menu::class);
+        return $this->belongsToMany(Menu::class)->orderBy("nama")->withPivot("permintaan_tambahan", "jumlah_porsi");
     }
 }

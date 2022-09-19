@@ -11,6 +11,7 @@ return new class extends Migration
         Schema::create('menu', function (Blueprint $table) {
             $table->bigIncrements("id");
             $table->string("nama")->unique();
+            $table->integer("harga")->default(0);
             $table->text("deskripsi")->nullable();
             $table->timestamp("tanggal_tambah")->default(now());
         });

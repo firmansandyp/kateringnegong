@@ -16,6 +16,7 @@ class Bahan extends Model
     ];
     protected $fillable = [
         "nama",
+        "stok",
         "deskripsi",
         "tanggal_restok"
     ];

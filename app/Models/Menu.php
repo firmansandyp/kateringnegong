@@ -16,13 +16,15 @@ class Menu extends Model
     ];
     protected $fillable = [
         "nama",
+        "harga",
         "deskripsi",
         "tanggal_tambah"
     ];
 
     public function bahan()
     {
-        return $this->belongsToMany(Bahan::class);
+        //Secara default hanya kolom foreignId saja yang akan dibawa pivot. Apabila ada kolom lain yang ingin dibawa dari tabel pivot, kolom tersebut perlu dinyatakan dengan withPivot().
+        return $this->belongsToMany(Bahan::class)->orderBy("nama")->withPivot("jumlah");
     }
 
     public function pesanan()

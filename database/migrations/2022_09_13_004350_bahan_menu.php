@@ -10,6 +10,7 @@ return new class extends Migration
     {
         Schema::create('bahan_menu', function (Blueprint $table) {
             $table->bigIncrements("id");
+            $table->integer("jumlah");
 
             $table->foreignId("bahan_id")
                 ->constrained("bahan")
