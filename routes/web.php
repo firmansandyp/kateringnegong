@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\BahanController;
+use App\Http\Controllers\AuthController;
 
 //README.md untuk wewenang akses setiap peran pengguna.
 //Setiap controller beri parameter objek Request dan Closure ($next) saja.
@@ -17,6 +18,15 @@ Route::get("/about", function () {
     return view("about", [
         "pageTitle" => "About"
     ]);
+});
+
+Route::prefix("/auth")->name("auth.")->group(function () {
+    Route::get("/masuk", [AuthController::class, "getFormMasuk"])->name("form.masuk");
+    Route::post("/masuk", [AuthController::class, "masuk"])->name("masuk");
+    Route::get("/daftar", [AuthController::class, "getFormDaftar"])->name("form.daftar");
+    Route::post("/daftar", [AuthController::class, "daftar"])->name("daftar");
+    Route::post("{user:id}/keluar",)->name("keluar");
+    Route::post("{user:id}/hapus",)->name("hapus");
 });
 
 Route::prefix("/pesanan")->group(function () {

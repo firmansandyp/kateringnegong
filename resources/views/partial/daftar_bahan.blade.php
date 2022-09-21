@@ -12,6 +12,8 @@
     <div class="d-flex flex-row flex-wrap gap-2">
         @foreach ($daftarBahan as $bahan)
             @include('partial/card_bahan')
+            @include('partial/modal_bahan_detail')
+            @include('partial/modal_bahan_update')
         @endforeach
     </div>
 </div>

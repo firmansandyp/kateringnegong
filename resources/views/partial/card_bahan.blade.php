@@ -9,10 +9,8 @@
         <div>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                 data-bs-target="#modalBahanDetail">Deskripsi</button>
-            @include('partial/modal_bahan_detail')
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#modalBahanUpdate">Update</button>
-            @include('partial/modal_bahan_update')
+            <button type="button" id="{{ $bahan->id }}" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#modalBahanUpdate" onclick="setUpdateForm()">Update</button>
             <a href="#" class="btn btn-primary">Hapus</a>
         </div>
     </div>
